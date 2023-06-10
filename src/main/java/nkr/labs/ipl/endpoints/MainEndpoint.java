@@ -9,6 +9,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
 
+/**
+ * This is the main entry class
+ */
 @RestController
 public class MainEndpoint {
 
