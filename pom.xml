@@ -87,6 +87,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>test-ipl</finalName>
 	</build>
 
 </project>
