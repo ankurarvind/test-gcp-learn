@@ -2,9 +2,13 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
-      - '--tag=gcr.io/nkr-codelabs/test-ipl:0.0.1'
-      - '--build-arg=JAR_FILE=target/test-ipl.jar'
+      - '--tag=gcr.io/nkr-codelabs/test-ipl:0.1'
+      - '-f'
+      - 'Dockerfile'
       - '.'
   - name: 'gcr.io/cloud-builders/docker'
-    args: [ 'push', 'us-central1-docker.pkg.dev/nkr-codelabs/gcp-project-docker-repo/test-ipl:0.0.1' ]
-images: ['us-central1-docker.pkg.dev/nkr-codelabs/gcp-project-docker-repo/test-ipl:0.0.1']
+    args:
+      - 'push'
+      - 'gcr.io/nkr-codelabs/test-ipl:0.1'
+images:
+  - 'gcr.io/nkr-codelabs/test-ipl:0.1'
