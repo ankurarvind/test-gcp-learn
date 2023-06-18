@@ -1,5 +1,5 @@
-# Use an official Java 8 runtime as the base image
-FROM eclipse-temurin:8u372-b07-jre
+# Use an official Maven image as the builder stage
+FROM maven:3.8.4-openjdk-8-slim AS builder
 
 # Set the working directory in the builder stage
 WORKDIR /app
@@ -12,10 +12,13 @@ COPY src ./src
 RUN mvn package -DskipTests
 
 # Use an OpenJDK image as the final stage
-FROM eclipse-temurin:8u372-b07-jre
+FROM openjdk:8-jdk-alpine
 
 # Set the working directory in the final stage
 WORKDIR /app
+
+# Install Maven
+RUN apk add --no-cache maven
 
 # Copy the compiled JAR file from the builder stage to the final stage
 COPY --from=builder /app/target/test-ipl.jar .
