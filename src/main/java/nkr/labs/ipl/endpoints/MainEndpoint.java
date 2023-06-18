@@ -24,7 +24,7 @@ public class MainEndpoint {
 
     @GetMapping("/time")
     public String getCurrentTime(){
-     return getCurrentTimeAsPerTimeZone(DEFAULT_TIMEZONE);
+     return "The time is " + getCurrentTimeAsPerTimeZone(DEFAULT_TIMEZONE);
     }
 
     @GetMapping("/time/{timezone}")
