@@ -14,6 +14,6 @@ steps:
     args:
       - 'apply'
       - '-f'
-      - 'kubernetes/deployment.yaml'
+      - 'src/main/resources/kubernetes/deployment.yaml'
 images:
   - 'gcr.io/nkr-codelabs/test-ipl:0.1'
