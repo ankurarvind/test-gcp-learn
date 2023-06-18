@@ -10,5 +10,11 @@ steps:
     args:
       - 'push'
       - 'gcr.io/nkr-codelabs/test-ipl:0.1'
+  - name: 'gcr.io/cloud-builders/gke-deploy'
+      args:
+        - 'apply'
+        - '-f'
+        - 'kubernetes/deployment.yaml'
+        - '--kubeconfig=project://.kube/config'
 images:
   - 'gcr.io/nkr-codelabs/test-ipl:0.1'

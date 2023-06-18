@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ipl-test
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ipl-test
+  template:
+    metadata:
+      labels:
+        app: ipl-test
+    spec:
+      containers:
+        - name: ipl-test
+          image: gcr.io/nkr-codelabs/test-ipl:0.1
+          ports:
+            - containerPort: 8080
