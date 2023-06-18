@@ -5,7 +5,7 @@ FROM eclipse-temurin:8u372-b07-jre
 WORKDIR /app
 
 # Copy the compiled JAR file into the container
-COPY target/ipl-0.0.1-SNAPSHOT.jar .
+COPY target/*.jar .
 
 # Expose the port your application listens on
 EXPOSE 8080
