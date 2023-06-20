@@ -2,14 +2,14 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
-      - '--tag=gcr.io/nkr-codelabs/test-ipl:0.1'
+      - '--tag=gcr.io/nkr-codelabs/test-ipl:latest'
       - '-f'
       - 'Dockerfile'
       - '.'
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'gcr.io/nkr-codelabs/test-ipl:0.1'
+      - 'gcr.io/nkr-codelabs/test-ipl:latest'
   - name: 'gcr.io/cloud-builders/gke-deploy'
     args:
       - 'apply'
@@ -19,4 +19,4 @@ steps:
       - '--location=us-central1'
       - '--cluster=nkr-autopilot-gke-clust'      
 images:
-  - 'gcr.io/nkr-codelabs/test-ipl:0.1'
+  - 'gcr.io/nkr-codelabs/test-ipl:latest'

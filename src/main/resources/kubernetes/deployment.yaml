@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: ipl-test
-          image: gcr.io/nkr-codelabs/test-ipl:0.1
+          image: gcr.io/nkr-codelabs/test-ipl:latest
           ports:
             - containerPort: 8080
 ---
