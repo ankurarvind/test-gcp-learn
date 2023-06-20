@@ -17,7 +17,6 @@ steps:
       - 'src/main/resources/kubernetes/deployment.yaml'
       - '--project=nkr-codelabs'
       - '--location=us-central1'
-      - '--cluster=nkr-autopilot-gke-clust'
-      - '--no-cache'
+      - '--cluster=nkr-autopilot-gke-clust'      
 images:
   - 'gcr.io/nkr-codelabs/test-ipl:0.1'
