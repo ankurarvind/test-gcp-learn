@@ -36,6 +36,6 @@ public class MainEndpoint {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm a");
         sdf.setTimeZone(tz);
         String formattedTime = sdf.format(cal.getTime());
-        return "Current Time in "+ timezone + " : " +formattedTime;
+        return "Current Time --> "+ timezone + " : " +formattedTime;
     }
 }
