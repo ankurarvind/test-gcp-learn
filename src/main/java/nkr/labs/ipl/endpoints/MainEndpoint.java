@@ -24,7 +24,7 @@ public class MainEndpoint {
 
     @GetMapping("/time")
     public String getCurrentTime(){
-     return "The time is " + getCurrentTimeAsPerTimeZone(DEFAULT_TIMEZONE);
+     return "Current Time : " + getCurrentTimeAsPerTimeZone(DEFAULT_TIMEZONE);
     }
 
     @GetMapping("/time/{timezone}")
@@ -36,6 +36,6 @@ public class MainEndpoint {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm a");
         sdf.setTimeZone(tz);
         String formattedTime = sdf.format(cal.getTime());
-        return formattedTime;
+        return "Current Time in "+ timezone + " : " +formattedTime;
     }
 }
