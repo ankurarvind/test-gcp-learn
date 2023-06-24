@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: ipl-test-configmap
 data:
-  imageTag: ${IMAGE_TAG}
+  imageTag: ${_IMAGE_TAG}
 
 ---
 apiVersion: apps/v1
@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: ipl-test
-          image: gcr.io/nkr-codelabs/test-ipl:${IMAGE_TAG}
+          image: gcr.io/nkr-codelabs/test-ipl:${_IMAGE_TAG}
           ports:
             - containerPort: 8080
           env:
