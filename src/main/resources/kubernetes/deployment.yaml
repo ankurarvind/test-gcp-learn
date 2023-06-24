@@ -18,6 +18,14 @@ spec:
           ports:
             - containerPort: 8080
           imagePullPolicy: Always
+          resources:
+            limits:
+              cpu: "1"
+              memory: "1Gi"
+            requests:
+              cpu: "0.5"
+              memory: "512mi"
+
 ---
 apiVersion: v1
 kind: Service
@@ -31,4 +39,24 @@ spec:
       targetPort: 8080
   selector:
     app: ipl-test
+
+---
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: ipl-test-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: ipl-test
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
 
