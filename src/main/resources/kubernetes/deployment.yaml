@@ -26,7 +26,7 @@ spec:
           ports:
             - containerPort: 8080
           env:
-            - name: IMAGE_TAG
+            - name: _IMAGE_TAG
               valueFrom:
                 configMapKeyRef:
                   name: ipl-test-configmap
