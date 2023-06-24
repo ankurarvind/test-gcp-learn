@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: ipl-test
-          image: gcr.io/nkr-codelabs/test-ipl:${IMAGE_TAG}
+          image: gcr.io/nkr-codelabs/test-ipl:$(IMAGE_TAG)
           ports:
             - containerPort: 8080
           env:
