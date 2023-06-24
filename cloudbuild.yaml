@@ -19,7 +19,7 @@ steps:
       - '--location=us-central1'
       - '--cluster=nkr-autopilot-gke-clust'
     env:
-      - 'IMAGE_TAG=$SHORT_SHA'
+      - 'IMAGE_TAG=${SHORT_SHA}'
     timeout: '1200s'
 images:
   - 'gcr.io/nkr-codelabs/test-ipl:${SHORT_SHA}'
