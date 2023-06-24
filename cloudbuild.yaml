@@ -2,14 +2,14 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
-      - '--tag=gcr.io/nkr-codelabs/test-ipl:latest'
+      - '--tag=gcr.io/nkr-codelabs/test-ipl:${_TIMESTAMP}'
       - '-f'
       - 'Dockerfile'
       - '.'
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'gcr.io/nkr-codelabs/test-ipl:latest'
+      - 'gcr.io/nkr-codelabs/test-ipl:${_TIMESTAMP}'
   - name: 'gcr.io/cloud-builders/gke-deploy'
     args:
       - 'apply'
