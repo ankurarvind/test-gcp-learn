@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: ipl-test
-          image: gcr.io/nkr-codelabs/test-ipl:latest
+          image: gcr.io/nkr-codelabs/test-ipl:${SHORT_SHA}
           ports:
             - containerPort: 8080
           env:
