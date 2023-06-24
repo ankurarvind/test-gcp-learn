@@ -4,7 +4,7 @@ metadata:
   name: ipl-test-configmap
 data:
   imageTag: ${SHORT_SHA}
-  
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -28,7 +28,7 @@ spec:
           env:
             - name: IMAGE_TAG
               valueFrom:
-                configMapRefKey:
+                configMapKeyRef:
                   name: ipl-test-configmap
                   key: imageTag
           imagePullPolicy: Always
