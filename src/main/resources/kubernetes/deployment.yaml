@@ -1,3 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ipl-test-configmap
+data:
+  imageTag: ${SHORT_SHA}
+  
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -14,9 +22,15 @@ spec:
     spec:
       containers:
         - name: ipl-test
-          image: gcr.io/nkr-codelabs/test-ipl:latest
+          image: gcr.io/nkr-codelabs/test-ipl:$(IMAGE_TAG)
           ports:
             - containerPort: 8080
+          env:
+            - name: IMAGE_TAG
+              valueFrom:
+                configMapRefKey:
+                  name: ipl-test-configmap
+                  key: imageTag
           imagePullPolicy: Always
           resources:
             limits:
