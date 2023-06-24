@@ -3,6 +3,7 @@ steps:
     args:
       - 'build'
       - '--tag=gcr.io/nkr-codelabs/test-ipl:${SHORT_SHA}'
+      - '--tag=gcr.io/nkr-codelabs/test-ipl:latest'
       - '-f'
       - 'Dockerfile'
       - '.'
