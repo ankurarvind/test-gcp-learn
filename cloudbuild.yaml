@@ -22,8 +22,5 @@ steps:
     env:
       - 'IMAGE_TAG=${SHORT_SHA}'
     timeout: '1200s'
-substitutions:
-  _IMAGE_TAG: ${SHORT_SHA}
-
 images:
   - 'gcr.io/nkr-codelabs/test-ipl:${SHORT_SHA}'
