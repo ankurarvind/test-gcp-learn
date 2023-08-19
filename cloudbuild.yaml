@@ -18,7 +18,7 @@ steps:
       - 'src/main/resources/kubernetes/deployment.yaml'
       - '--project=involuted-river-396410'
       - '--location=us-central1'
-      - '--cluster=nkr-autopilot-gke-clust'
+      - '--cluster=nkr-autopilot-cluster-1'
     env:
       - 'IMAGE_TAG=${SHORT_SHA}'
     timeout: '1200s'
