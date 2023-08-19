@@ -2,25 +2,25 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
-      - '--tag=gcr.io/nkr-codelabs/test-ipl:${SHORT_SHA}'
-      - '--tag=gcr.io/nkr-codelabs/test-ipl:latest'
+      - '--tag=gcr.io/involuted-river-396410/test-ipl:${SHORT_SHA}'
+      - '--tag=gcr.io/involuted-river-396410/test-ipl:latest'
       - '-f'
       - 'Dockerfile'
       - '.'
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'gcr.io/nkr-codelabs/test-ipl:${SHORT_SHA}'
+      - 'gcr.io/involuted-river-396410/test-ipl:${SHORT_SHA}'
   - name: 'gcr.io/cloud-builders/gke-deploy'
     args:
       - 'apply'
       - '-f'
       - 'src/main/resources/kubernetes/deployment.yaml'
-      - '--project=nkr-codelabs'
+      - '--project=involuted-river-396410'
       - '--location=us-central1'
       - '--cluster=nkr-autopilot-gke-clust'
     env:
       - 'IMAGE_TAG=${SHORT_SHA}'
     timeout: '1200s'
 images:
-  - 'gcr.io/nkr-codelabs/test-ipl:${SHORT_SHA}'
+  - 'gcr.io/involuted-river-396410/test-ipl:${SHORT_SHA}'

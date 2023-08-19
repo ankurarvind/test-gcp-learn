@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: ipl-test
-          image: gcr.io/nkr-codelabs/test-ipl:latest
+          image: gcr.io/involuted-river-396410/test-ipl:latest
           ports:
             - containerPort: 8080
           imagePullPolicy: Always
