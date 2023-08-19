@@ -11,17 +11,17 @@ steps:
     args:
       - 'push'
       - 'gcr.io/involuted-river-396410/test-ipl:latest'
-  - name: 'gcr.io/involuted-river-396410/terraform'
+  - name: 'hashicorp/terraform'
     args: [ 'init',
             '-backend-config=project=involuted-river-396410',
             '-backend-config=bucket=${_BUCKET}' ]
     env:
       - "TF_VAR_project-name=involuted-river-396410"
-  - name: 'gcr.io/involuted-river-396410/terraform'
+  - name: 'hashicorp/terraform'
     args: [ 'plan' ]
     env:
       - "TF_VAR_project-name=involuted-river-396410"
-  - name: 'gcr.io/involuted-river-396410/terraform'
+  - name: 'hashicorp/terraform'
     args: [ 'apply', '-auto-approve' ]
     env:
       - "TF_VAR_project-name=involuted-river-396410"
