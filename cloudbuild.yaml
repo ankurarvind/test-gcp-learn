@@ -11,6 +11,22 @@ steps:
     args:
       - 'push'
       - 'gcr.io/involuted-river-396410/test-ipl:latest'
+  - name: 'gcr.io/involuted-river-396410/terraform'
+    args: [ 'init',
+            '-backend-config=project=involuted-river-396410',
+            '-backend-config=bucket=${_BUCKET}' ]
+    env:
+      - "TF_VAR_project-name=involuted-river-396410"
+  - name: 'gcr.io/involuted-river-396410/terraform'
+    args: [ 'plan' ]
+    env:
+      - "TF_VAR_project-name=involuted-river-396410"
+  - name: 'gcr.io/involuted-river-396410/terraform'
+    args: [ 'apply', '-auto-approve' ]
+    env:
+      - "TF_VAR_project-name=involuted-river-396410"
+    substitutions:
+      _BUCKET: gs://nkr-gcplearn-tf-state202308192018
   - name: 'gcr.io/cloud-builders/gke-deploy'
     args:
       - 'apply'
@@ -18,7 +34,7 @@ steps:
       - 'src/main/resources/kubernetes/deployment.yaml'
       - '--project=involuted-river-396410'
       - '--location=us-central1'
-      - '--cluster=nkr-autopilot-cluster-1'
+      - '--cluster=nkr-autopilot-tf-cluster'
     env:
       - 'IMAGE_TAG=${SHORT_SHA}'
     timeout: '1200s'
