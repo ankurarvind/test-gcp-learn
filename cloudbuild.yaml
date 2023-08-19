@@ -2,7 +2,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'build'
-      - '--tag=gcr.io/involuted-river-396410/test-ipl:${SHORT_SHA}'
+      #- '--tag=gcr.io/involuted-river-396410/test-ipl:${SHORT_SHA}'
       - '--tag=gcr.io/involuted-river-396410/test-ipl:latest'
       - '-f'
       - 'Dockerfile'
@@ -10,7 +10,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - 'push'
-      - 'gcr.io/involuted-river-396410/test-ipl:${SHORT_SHA}'
+      - 'gcr.io/involuted-river-396410/test-ipl:latest'
   - name: 'gcr.io/cloud-builders/gke-deploy'
     args:
       - 'apply'
@@ -23,4 +23,4 @@ steps:
       - 'IMAGE_TAG=${SHORT_SHA}'
     timeout: '1200s'
 images:
-  - 'gcr.io/involuted-river-396410/test-ipl:${SHORT_SHA}'
+  - 'gcr.io/involuted-river-396410/test-ipl:latest'
